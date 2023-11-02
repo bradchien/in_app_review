@@ -14,7 +14,7 @@
 - (void)handleMethodCall:(FlutterMethodCall *)call result:(FlutterResult)result {
     
     [self logMessage:@"handle" details:call.method];
-    
+#if TARGET_OS_IOS
     if ([call.method isEqual:@"requestReview"]) {
         [self requestReview:result];
     } else if ([call.method isEqual:@"isAvailable"]) {
@@ -25,8 +25,12 @@
         [self logMessage:@"method not implemented"];
         result(FlutterMethodNotImplemented);
     }
+#else
+	result(FlutterMethodNotImplemented);
+#endif
 }
 
+#if TARGET_OS_IOS
 - (void) requestReview:(FlutterResult)result {
     if (@available(iOS 14, *)) {
         [self logMessage:@"iOS 14+"];
@@ -91,7 +95,7 @@
         [app openURL:url];
     }
 }
-
+#endif
 
 #pragma mark - Logging Helpers
 

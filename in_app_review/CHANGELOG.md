@@ -1,3 +1,19 @@
+# [2.0.12]
+
+- Fix syntax error
+
+# [2.0.11]
+
+- Fix syntax error
+
+# [2.0.10]
+
+- Fix syntax error
+
+# [2.0.9]
+
+- Make library buildable on tvOS
+
 # [2.0.8]
 
 - Bump Kotlin version to 1.7.10
